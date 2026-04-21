@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import translations from '../translations/ui.json'
 
-const DEFAULT_LANGUAGE = "zh"
+const DEFAULT_LANGUAGE = "en"
+const SUPPORTED_LANGUAGES = ["en", "hi"]
 
 export const useLanguage = () => {
-  const [language, setLanguage] = useState(
-    localStorage.getItem('language') || DEFAULT_LANGUAGE
-  )
+  const getInitialLanguage = () => {
+    const saved = localStorage.getItem('language')
+    if (saved && SUPPORTED_LANGUAGES.includes(saved)) {
+      return saved
+    }
+    return DEFAULT_LANGUAGE
+  }
+
+  const [language, setLanguage] = useState(getInitialLanguage())
 
   const translate = (key) => {
     try {

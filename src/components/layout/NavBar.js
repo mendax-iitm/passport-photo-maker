@@ -77,10 +77,15 @@ const NavBar = ({
   }
 
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className="bg-[#f4fbf9]/70 backdrop-blur-[24px] w-full top-0 sticky z-50 shadow-[0_40px_60px_-15px_rgba(22,29,28,0.04)]">
+      <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 py-4 max-w-[1400px] mx-auto gap-4 md:gap-0">
+        <div className="flex items-center gap-3">
+          <img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt="Crafted Visa Logo" className="h-12 w-auto text-primary drop-shadow-sm" />
+          <h1 className="text-2xl font-extrabold text-[#161d1c] font-headline tracking-[-0.02em]">Crafted Visa</h1>
+        </div>
+        <div className="flex items-center gap-2 md:gap-4">
           <select
+            className="form-select bg-surface-container-low border-none rounded-lg py-2 pl-3 pr-8 text-sm font-bold text-on-surface focus:ring-2 focus:ring-primary-container/20"
             value={template.title[getLanguage()]}
             onChange={handleTemplateChange}
           >
@@ -90,17 +95,16 @@ const NavBar = ({
               </option>
             ))}
           </select>
-        </li>
-        <li>
           <select
+            className="form-select bg-surface-container-low border-none rounded-lg py-2 pl-3 pr-8 text-sm font-bold text-on-surface focus:ring-2 focus:ring-primary-container/20"
             value={getLanguage()}
             onChange={handleLanguageChange}
           >
             <option value="en">English</option>
-            <option value="zh">中文</option>
+            <option value="hi">हिन्दी</option>
           </select>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   )
 }

@@ -1,210 +1,210 @@
 {
-    "app.title": {
-        "en": "Passport & Visa Photo Maker",
-        "zh": "护照签证照片生成器"
-    },
-    "selectPhotoButton": {
-        "en": "Select A Photo",
-        "zh": "选择照片"
-    },
-    "disclaimerModalTitle": {
-        "en": "Disclaimer and Data Privacy Policy",
-        "zh": "免责声明和数据隐私政策"
-    },
-    "disclaimerTitle": {
-        "en": "Disclaimer: ",
-        "zh": "免责声明："
-    },
-    "disclaimer": {
-        "en": "This tool may use incorrect or outdated requirements. The author of this tool, and the tool itself, are not responsible for any losses caused by its use. Users who utilize this tool are liable for checking the updated requirements on government websites and assume full responsibility for the photos they create using this tool. By clicking \"Agree\" and continue, you confirm your agreement with this disclaimer.",
-        "zh": "此工具可能使用不正确或过时的要求。该工具的作者以及工具本身不对其使用造成的任何损失负责。使用此工具的用户有责任检查政府网站上的最新要求，并对使用此工具创建的照片承担全部责任。通过点击“同意”并继续，表示您确认您同意此免责声明。"
-    },
-    "datePrivacyTitle": {
-        "en": "Date Privacy Policy: ",
-        "zh": "数据隐私政策："
-    },
-    "disclaimer2": {
-        "en": "Your photo will be processed locally inside your browser. NO photos will be uploaded to any server. The only data shared are your access activities to this website, which are used for Google website analytics. By clicking 'Agree' and continuing, you confirm your agreement with this policy.",
-        "zh": "您的照片将在本地浏览器内进行处理，*不会*上传到任何服务器。唯一共享的数据是您对本网站的访问活动，用于Google网站分析。点击'同意'并继续，即表示您确认同意此政策。"
-    },
-    "disclaimer3": {
-        "en": "We collect cookies to analyze our website traffic and performance, and we never collect any personal data. By clicking 'Agree' or continue use the website, you confirm your agreement with this policy.",
-        "zh": "我们收集 cookie 是为了分析我们的网站流量和性能，其中不涉及收集任何个人数据。点击“同意”或继续使用该网站，即表示您确认同意本条款。"
-    },
-    "Agree": {
-        "en": "Agree",
-        "zh": "同意"
-    },
-    "Disagree": {
-        "en": "Disagree",
-        "zh": "拒绝"
-    },
-    "zoomLabel": {
-        "en": "Zoom",
-        "zh": "缩放"
-    },
-    "rotateLabel": {
-        "en": "Rotate",
-        "zh": "旋转"
-    },
-    "guideTitle": {
-        "en": "Guide",
-        "zh": "参考线"
-    },
-    "guideLabel": {
-        "en": "Guide",
-        "zh": "参考线"
-    },
-    "instructionLabel": {
-        "en": "Instruction",
-        "zh": "说明"
-    },
-    "defaultWidth": {
-        "en": "Default Width",
-        "zh": "默认宽度"
-    },
-    "defaultHeight": {
-        "en": "Default Height",
-        "zh": "默认高度"
-    },
-    "controlTab1": {
-        "en": "Transform",
-        "zh": "变换"
-    },
-    "controlTab2": {
-        "en": "Color",
-        "zh": "颜色"
-    },
-    "brightness": {
-        "en": "Brightness",
-        "zh": "亮度"
-    },
-    "saturation": {
-        "en": "Saturation",
-        "zh": "饱和度"
-    },
-    "warmth": {
-        "en": "Warmth",
-        "zh": "色温"
-    },
-    "contrast": {
-        "en": "Contrast",
-        "zh": "对比度"
-    },
-    "removeBgLabel": {
-        "en": "AI Background Removal",
-        "zh": "AI去背景"
-    },
-    "backgroundRemovalProcessing": {
-        "en": "Processing...",
-        "zh": "处理中..."
-    },
-    "backgroundRemovalError": {
-        "en": "Error on calling AI background removal, please refresh then retry.",
-        "zh": "AI去背景错误，请刷新并重试。"
-    },
-    "backgroundRemovalIOS": {
-        "en": "AI Background Removal does NOT support iPhone or iPad, please use Android, macOS or Windows device.",
-        "zh": "AI去背景不支持iPhone或iPad，请使用安卓，苹果电脑，或者Windows设备。"
-    },
-    "backgroundRemovalReminder": {
-        "en": "It may take a while for the first time, please be patient...",
-        "zh": "第一次使用需要稍加等待，请保持耐心......"
-    },
-    "agreeButton": {
-        "en": "Agree",
-        "zh": "同意"
-    },
-    "disagreeButton": {
-        "en": "Disagree",
-        "zh": "不同意"
-    },
-    "yesButton": {
-        "en": "Confirm",
-        "zh": "确定"
-    },
-    "noButton": {
-        "en": "Cancel",
-        "zh": "取消"
-    },
-    "aiConfirmTitle": {
-        "en": "Download AI Model？",
-        "zh": "继续下载AI模型"
-    },
-    "aiConfirmText": {
-        "en": "Click \"Confirm\" to start download AI pre-trained model for background removal. It will take ~80MB and will only need to download once for this session.",
-        "zh": "点击“确认”以开始下载AI预训练的去背景模型。它将占用约80MB的空间，并且仅需要在本次会话中下载一次。"
-    },
-    "loadNewPhotoButton": {
-        "en": "Load New Photo",
-        "zh": "加载新照片"
-    },
-    "widthLabel": {
-        "en": "Width",
-        "zh": "宽度"
-    },
-    "heightLabel": {
-        "en": "Height",
-        "zh": "高度"
-    },
-    "sizeLabel": {
-        "en": "Size",
-        "zh": "文件大小"
-    },
-    "changelog": {
-        "en": "Changelog",
-        "zh": "更新历史"
-    },
-    "feedback": {
-        "en": "Feedback?",
-        "zh": "反馈或建议？"
-    },
-    "saveTitle": {
-        "en": "Save Photo",
-        "zh": "保存照片"
-    },
-    "saveGenerating": {
-        "en": "Generating...",
-        "zh": "生成照片中......"
-    },
-    "saveSingle": {
-        "en": "Save Single Photo",
-        "zh": "保存单张照片"
-    },
-    "save4x6": {
-        "en": "Save Printable Layout",
-        "zh": "保存打印照片"
-    },
-    "saveSingleText": {
-        "en": "For Electronic Upload",
-        "zh": "用于电子版上传"
-    },
-    "save4x6Text": {
-        "en": "For 4''x6'' Photo Print",
-        "zh": "用于打印4''x6''照片"
-    },
-    "width": {
-        "en": "Width",
-        "zh": "宽度"
-    },
-    "height": {
-        "en": "Height",
-        "zh": "高度"
-    },
-    "anmiatedText1": {
-        "en": "Happy",
-        "zh": "新年"
-    },
-    "anmiatedText2": {
-        "en": " New Year",
-        "zh": "快乐"
-    },
-    "jobMessage1": {
-        "en": "Hello everyone, I was recently laid off due to reduction in force. If you are in the U.S. and would like to recommend any Software Engineer-related opportunities, please email me at ",
-        "zh": "大家好，我最近因为公司运营问题被裁员。如果您在美国，愿意推荐Software Engineer相关职位的，请发邮件到 "
-    },
-    "jobMessage2": {
-        "en": ", Thank you so much!",
-        "zh": "，非常感谢！"
-    }
+  "app.title": {
+    "en": "Passport & Visa Photo Maker",
+    "hi": "पासपोर्ट और वीज़ा फोटो मेकर"
+  },
+  "selectPhotoButton": {
+    "en": "Select A Photo",
+    "hi": "एक फोटो चुनें"
+  },
+  "disclaimerModalTitle": {
+    "en": "Disclaimer and Data Privacy Policy",
+    "hi": "अस्वीकरण और डेटा गोपनीयता नीति"
+  },
+  "disclaimerTitle": {
+    "en": "Disclaimer: ",
+    "hi": "अस्वीकरण: "
+  },
+  "disclaimer": {
+    "en": "This tool may use incorrect or outdated requirements. The author of this tool, and the tool itself, are not responsible for any losses caused by its use. Users who utilize this tool are liable for checking the updated requirements on government websites and assume full responsibility for the photos they create using this tool. By clicking \"Agree\" and continue, you confirm your agreement with this disclaimer.",
+    "hi": "यह उपकरण गलत या पुरानी आवश्यकताओं का उपयोग कर सकता है। इस उपकरण के लेखक और स्वयं उपकरण, इसके उपयोग के कारण होने वाले किसी भी नुकसान के लिए ज़िम्मेदार नहीं हैं। जो उपयोगकर्ता इस उपकरण का उपयोग करते हैं, वे सरकारी वेबसाइटों पर अद्यतन आवश्यकताओं की जाँच करने के लिए उत्तरदायी हैं और इस उपकरण का उपयोग करके उनके द्वारा बनाए गए फ़ोटो की पूरी ज़िम्मेदारी लेते हैं। \"सहमत\" पर क्लिक करके और जारी रखकर, आप इस अस्वीकरण के साथ अपने समझौते की पुष्टि करते हैं।"
+  },
+  "datePrivacyTitle": {
+    "en": "Date Privacy Policy: ",
+    "hi": "डेटा गोपनीयता नीति: "
+  },
+  "disclaimer2": {
+    "en": "Your photo will be processed locally inside your browser. NO photos will be uploaded to any server. The only data shared are your access activities to this website, which are used for Google website analytics. By clicking 'Agree' and continuing, you confirm your agreement with this policy.",
+    "hi": "आपकी तस्वीर आपके ब्राउज़र के अंदर स्थानीय रूप से संसाधित की जाएगी। कोई भी तस्वीर किसी सर्वर पर अपलोड नहीं की जाएगी। साझा किया गया एकमात्र डेटा इस वेबसाइट पर आपकी पहुंच गतिविधियां हैं, जिनका उपयोग Google वेबसाइट विश्लेषण के लिए किया जाता है। 'सहमत' पर क्लिक करके और जारी रखकर, आप इस नीति के साथ अपने समझौते की पुष्टि करते हैं।"
+  },
+  "disclaimer3": {
+    "en": "We collect cookies to analyze our website traffic and performance, and we never collect any personal data. By clicking 'Agree' or continue use the website, you confirm your agreement with this policy.",
+    "hi": "हम अपनी वेबसाइट ट्रैफ़िक और प्रदर्शन का विश्लेषण करने के लिए कुकीज़ एकत्र करते हैं, और हम कभी भी कोई व्यक्तिगत डेटा एकत्र नहीं करते हैं। 'सहमत' पर क्लिक करके या वेबसाइट का उपयोग जारी रखकर, आप इस नीति के साथ अपने समझौते की पुष्टि करते हैं।"
+  },
+  "Agree": {
+    "en": "Agree",
+    "hi": "सहमत"
+  },
+  "Disagree": {
+    "en": "Disagree",
+    "hi": "असहमत"
+  },
+  "zoomLabel": {
+    "en": "Zoom",
+    "hi": "ज़ूम"
+  },
+  "rotateLabel": {
+    "en": "Rotate",
+    "hi": "घुमाएँ"
+  },
+  "guideTitle": {
+    "en": "Guide",
+    "hi": "गाइड"
+  },
+  "guideLabel": {
+    "en": "Guide",
+    "hi": "गाइड"
+  },
+  "instructionLabel": {
+    "en": "Instruction",
+    "hi": "निर्देश"
+  },
+  "defaultWidth": {
+    "en": "Default Width",
+    "hi": "डिफ़ॉल्ट चौड़ाई"
+  },
+  "defaultHeight": {
+    "en": "Default Height",
+    "hi": "डिफ़ॉल्ट ऊंचाई"
+  },
+  "controlTab1": {
+    "en": "Transform",
+    "hi": "बदलें"
+  },
+  "controlTab2": {
+    "en": "Color",
+    "hi": "रंग"
+  },
+  "brightness": {
+    "en": "Brightness",
+    "hi": "चमक"
+  },
+  "saturation": {
+    "en": "Saturation",
+    "hi": "संतृप्ति"
+  },
+  "warmth": {
+    "en": "Warmth",
+    "hi": "गर्माहट"
+  },
+  "contrast": {
+    "en": "Contrast",
+    "hi": "कंट्रास्ट"
+  },
+  "removeBgLabel": {
+    "en": "AI Background Removal",
+    "hi": "AI पृष्ठभूमि हटाना"
+  },
+  "backgroundRemovalProcessing": {
+    "en": "Processing...",
+    "hi": "प्रोसेसिंग..."
+  },
+  "backgroundRemovalError": {
+    "en": "Error on calling AI background removal, please refresh then retry.",
+    "hi": "AI बैकग्राउंड रिमूवल कॉल करने में त्रुटि, कृपया रीफ्रेश करें फिर पुनः प्रयास करें।"
+  },
+  "backgroundRemovalIOS": {
+    "en": "AI Background Removal does NOT support iPhone or iPad, please use Android, macOS or Windows device.",
+    "hi": "AI बैकग्राउंड रिमूवल iPhone या iPad को सपोर्ट नहीं करता है, कृपया Android, macOS या Windows डिवाइस का उपयोग करें।"
+  },
+  "backgroundRemovalReminder": {
+    "en": "It may take a while for the first time, please be patient...",
+    "hi": "पहली बार में कुछ समय लग सकता है, कृपया धैर्य रखें..."
+  },
+  "agreeButton": {
+    "en": "Agree",
+    "hi": "सहमत"
+  },
+  "disagreeButton": {
+    "en": "Disagree",
+    "hi": "असहमत"
+  },
+  "yesButton": {
+    "en": "Confirm",
+    "hi": "पुष्टि करें"
+  },
+  "noButton": {
+    "en": "Cancel",
+    "hi": "रद्द करें"
+  },
+  "aiConfirmTitle": {
+    "en": "Download AI Model？",
+    "hi": "AI मॉडल डाउनलोड करें?"
+  },
+  "aiConfirmText": {
+    "en": "Click \"Confirm\" to start download AI pre-trained model for background removal. It will take ~80MB and will only need to download once for this session.",
+    "hi": "\"पुष्टि करें\" पर क्लिक करके पृष्ठभूमि हटाने के लिए AI पूर्व-प्रशिक्षित मॉडल डाउनलोड शुरू करें। इसमें ~80MB लगेंगे और इस सत्र के लिए केवल एक बार डाउनलोड करने की आवश्यकता होगी।"
+  },
+  "loadNewPhotoButton": {
+    "en": "Load New Photo",
+    "hi": "नई फोटो लोड करें"
+  },
+  "widthLabel": {
+    "en": "Width",
+    "hi": "चौड़ाई"
+  },
+  "heightLabel": {
+    "en": "Height",
+    "hi": "ऊंचाई"
+  },
+  "sizeLabel": {
+    "en": "Size",
+    "hi": "आकार"
+  },
+  "changelog": {
+    "en": "Changelog",
+    "hi": "चेंजलॉग"
+  },
+  "feedback": {
+    "en": "Feedback?",
+    "hi": "प्रतिक्रिया?"
+  },
+  "saveTitle": {
+    "en": "Save Photo",
+    "hi": "फोटो सहेजें"
+  },
+  "saveGenerating": {
+    "en": "Generating...",
+    "hi": "उत्पन्न कर रहा है..."
+  },
+  "saveSingle": {
+    "en": "Save Single Photo",
+    "hi": "एकल फोटो सहेजें"
+  },
+  "save4x6": {
+    "en": "Save Printable Layout",
+    "hi": "प्रिंट करने योग्य लेआउट सहेजें"
+  },
+  "saveSingleText": {
+    "en": "For Electronic Upload",
+    "hi": "इलेक्ट्रॉनिक अपलोड के लिए"
+  },
+  "save4x6Text": {
+    "en": "For 4''x6'' Photo Print",
+    "hi": "4''x6'' फोटो प्रिंट के लिए"
+  },
+  "width": {
+    "en": "Width",
+    "hi": "चौड़ाई"
+  },
+  "height": {
+    "en": "Height",
+    "hi": "ऊंचाई"
+  },
+  "anmiatedText1": {
+    "en": "Happy",
+    "hi": "शुभ"
+  },
+  "anmiatedText2": {
+    "en": " New Year",
+    "hi": " नया साल"
+  },
+  "jobMessage1": {
+    "en": "Hello everyone, I was recently laid off due to reduction in force. If you are in the U.S. and would like to recommend any Software Engineer-related opportunities, please email me at ",
+    "hi": "सभी को नमस्कार, मुझे हाल ही में निकाल दिया गया था। यदि आप अमेरिका में हैं और किसी सॉफ्टवेयर इंजीनियर से संबंधित अवसरों की सिफारिश करना चाहते हैं, तो कृपया मुझे ईमेल करें "
+  },
+  "jobMessage2": {
+    "en": ", Thank you so much!",
+    "hi": ", आपका बहुत-बहुत धन्यवाद!"
+  }
 }

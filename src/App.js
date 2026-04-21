@@ -1,10 +1,9 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { removeBackground as imglyRemoveBackground } from "@imgly/background-removal"
 import ReactGA from 'react-ga4'
-import CookieConsent from "react-cookie-consent"
 import { useLanguage } from './hooks/useLanguage'  // Update path
 import { NavBar, LeftColumn, MiddleColumn, RightColumn } from './components/layout'
-import { SaveModal, Disclaimer, Changelog, AiModelModal } from './components/modals'
+import { SaveModal, Disclaimer, AiModelModal } from './components/modals'
 import Color from './utils/Color'
 import { TEMPLATES } from './templates'
 import './App.css'
@@ -49,7 +48,7 @@ const App = () => {
     height_valid: true,
     size_valid: true,
   })
-  const [modals, setModals] = useState({ changelog: false, save: false, disclaimer: false, aiModel: false })
+  const [modals, setModals] = useState({ save: false, disclaimer: !localStorage.getItem('policyAgreed'), aiModel: false })
   const [editorDimensions, setEditorDimensions] = useState({
     width: parseInt(template.width) / MM2INCH * parseInt(template.dpi),
     height: parseInt(template.height) / MM2INCH * parseInt(template.dpi),
@@ -235,95 +234,58 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="banner">
-        {translate("jobMessage1")}<a href="mailto:jiataihan.dev@gmail.com">jiataihan.dev@gmail.com</a>{translate("jobMessage2")}
-      </div>
-      <div className="frame">
-        <div className="container">
-          <NavBar
-            templateProps={templateProps}
-            editorProps={editorProps}
-            uiProps={uiProps}
-          />
-        </div>
-        <div className="container">
-          <LeftColumn
-            photoProps={photoProps}
-            optionsProps={{ options, onOptionChange: handleOptionChange }}
-            editorProps={editorProps}
-            uiProps={uiProps}
-          />
-          <MiddleColumn
-            editorProps={editorProps}
-            photoProps={photoProps}
-            controlProps={controlProps}
-            uiProps={uiProps}
-          />
-          <RightColumn
-            editorProps={editorProps}
-            photoProps={{
-              ...photoProps,
-              onPhotoLoad: handlePhotoLoad  // Ensure onPhotoLoad is included
-            }}
-            exportProps={{ exportPhoto, setExportPhoto }}
-            uiProps={uiProps}
-          />
-          <SaveModal
-            editorProps={editorProps}
-            photoProps={photoProps}
-            uiProps={uiProps}
-          />
-          <AiModelModal
-            controlProps={controlProps}
-            uiProps={uiProps}
-          />
-          <Disclaimer uiProps={uiProps} />
-        </div>
-        <div className="container">
-          <Changelog uiProps={uiProps} />
-          <div
-            role="button"
-            className="outline modal-button"
-          >
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/hjt486/passport-photo-maker/issues"
-              onClick={() => {
-                ReactGA.event({
-                  action: 'feedback',
-                  category: 'Button Click',
-                  label: 'Feedback',
-                })
-              }}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >{translate("feedback")}</a>
-          </div>
-        </div>
-        <CookieConsent
-          //debug={true}
-          flipButtons={true}
-          overlay={true}
-          acceptOnOverlayClick={true}
-          enableDeclineButton
-          onDecline={() => {
-            window.location.href = 'https://www.google.com'
+      <NavBar
+        templateProps={templateProps}
+        editorProps={editorProps}
+        uiProps={uiProps}
+      />
+      
+      <main className="max-w-[1400px] mx-auto px-4 py-8 flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-8 justify-center items-start">
+        <LeftColumn
+          photoProps={photoProps}
+          optionsProps={{ options, onOptionChange: handleOptionChange }}
+          editorProps={editorProps}
+          uiProps={uiProps}
+        />
+        <MiddleColumn
+          editorProps={editorProps}
+          photoProps={photoProps}
+          controlProps={controlProps}
+          uiProps={uiProps}
+        />
+        <RightColumn
+          editorProps={editorProps}
+          photoProps={{
+            ...photoProps,
+            onPhotoLoad: handlePhotoLoad  // Ensure onPhotoLoad is included
           }}
-          visible="byCookieValue"
-          hideOnAccept={true}
-          location="bottom"
-          buttonText={translate("Agree")}
-          declineButtonText={translate("Disagree")}
-          style={{
-            alignItems: "center",
-            color: "var(--pico-contrast)",
-            background: "var(--pico-form-element-selected-background-color)"
-          }}
-          buttonStyle={{}}
-        >
-          {translate("disclaimer3")}
-        </CookieConsent>
-      </div>
+          exportProps={{ exportPhoto, setExportPhoto }}
+          uiProps={uiProps}
+        />
+      </main>
+
+      <footer className="bg-[#eef5f3] dark:bg-slate-900 flex flex-col md:flex-row justify-between items-center px-8 py-12 mt-20 gap-8">
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <h3 className="text-lg font-bold text-[#161d1c] dark:text-white font-headline">Crafted Visa</h3>
+          <p className="font-body text-sm leading-relaxed text-[#564336] dark:text-slate-500 max-w-xs text-center md:text-left">© 2024 Crafted Visa. Your Next Adventure Awaits.</p>
+        </div>
+        <div className="flex flex-col items-center md:items-end gap-2 text-sm text-[#564336] dark:text-slate-500">
+          <p>For feedback, email <a href="mailto:craftedavays@gmail.com" className="font-medium hover:text-[#f58220] underline decoration-[#f58220]/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100">craftedavays@gmail.com</a></p>
+          <p>Privacy: All processing happens locally. We do not store your photos.</p>
+        </div>
+      </footer>
+
+      <SaveModal
+        editorProps={editorProps}
+        photoProps={photoProps}
+        uiProps={uiProps}
+      />
+      <AiModelModal
+        controlProps={controlProps}
+        uiProps={uiProps}
+      />
+      <Disclaimer uiProps={uiProps} />
+
     </div>
   )
 }

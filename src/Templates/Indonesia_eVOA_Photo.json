@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "Indonesia/Bali e-VOA Photo",
-    "zh": "印度尼西亚/巴厘岛电子落地签照片"
+    "hi": "Indonesia/Bali e-VOA Photo"
   },
   "width": "35",
   "height": "45",
@@ -10,7 +10,7 @@
   "size": "2048",
   "instruction": {
     "en": "Plain white background. Head should be 50-60% of image height with eyes at 50-60% from the bottom. Please check the latest requirement <a target=\"_blank\" rel=\"noreferrer\" href=\"https://molina.imigrasi.go.id/\">here</a>.",
-    "zh": "纯白背景。头部占图像高度的50-60%，双眼位于图像底部50-60%处。请点击<a target=\"_blank\" rel=\"noreferrer\" href=\"https://molina.imigrasi.go.id/\">这里</a>查看最新标准。"
+    "hi": "Plain white background. Head should be 50-60% of image height with eyes at 50-60% from the bottom. Please check the latest requirement <a target=\"_blank\" rel=\"noreferrer\" href=\"https://molina.imigrasi.go.id/\">here</a>."
   },
   "guide": [
     {
@@ -18,7 +18,7 @@
       "title": "Center Guide Line",
       "instruction": {
         "en": "Align the nose tip to the center line",
-        "zh": "将鼻尖居中对齐这条线"
+        "hi": "नाक की नोक को मध्य रेखा के साथ संरेखित करें"
       },
       "start_x": "172.5",
       "start_y": "20",
@@ -36,7 +36,7 @@
       "title": "Forbidden Area: Top",
       "instruction": {
         "en": "Do not put top of the head/hair into this area",
-        "zh": "请勿将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में न रखें"
       },
       "start_x": "0",
       "start_y": "0",
@@ -54,7 +54,7 @@
       "title": "Forbidden Area: Bottom",
       "instruction": {
         "en": "Do not put bottom of the face/chin into this area",
-        "zh": "请勿将头部（包含下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी को इस क्षेत्र में न रखें"
       },
       "start_x": "0",
       "start_y": "335",
@@ -72,7 +72,7 @@
       "title": "Forbidden Area: Left",
       "instruction": {
         "en": "Do not put the head(including ears) into this area",
-        "zh": "请勿将头部（包含耳朵）放入此区域"
+        "hi": "सिर (कानों सहित) को इस क्षेत्र में न रखें"
       },
       "start_x": "0",
       "start_y": "40",
@@ -90,7 +90,7 @@
       "title": "Forbidden Area: Right",
       "instruction": {
         "en": "Do not put the head(including ears) into this area",
-        "zh": "请勿将头部（包含耳朵）放入此区域"
+        "hi": "सिर (कानों सहित) को इस क्षेत्र में न रखें"
       },
       "start_x": "330",
       "start_y": "40",
@@ -108,7 +108,7 @@
       "title": "Top Head Area",
       "instruction": {
         "en": "Put top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "20",
       "start_y": "40",
@@ -126,7 +126,7 @@
       "title": "Chin Area",
       "instruction": {
         "en": "Put the edge of the bottom of the face/chin into this area",
-        "zh": "请将脸部（下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "20",
       "start_y": "270",

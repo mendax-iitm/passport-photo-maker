@@ -22,22 +22,31 @@ const AiModelModal = ({ controlProps, uiProps }) => {
     closeModal()
   }
 
-  return (
-    <dialog open={modals.aiModel} className='modal'>
-      <article>
-        <h4>{translate("aiConfirmTitle")}</h4>
-        <small>{translate("aiConfirmText")}</small>
-        <footer>
-          <button onClick={handleConfirm}>
-            {translate("yesButton")}
-          </button>
-          <button onClick={closeModal}>
+  return modals.aiModel ? (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="bg-surface-container-lowest rounded-2xl p-6 md:p-8 shadow-2xl max-w-md w-full animate-in zoom-in-95 duration-200">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="material-symbols-outlined text-primary text-3xl">cloud_download</span>
+          <h4 className="text-xl font-extrabold text-on-surface font-headline">{translate("aiConfirmTitle")}</h4>
+        </div>
+        <p className="text-sm text-on-surface-variant leading-relaxed mb-8">{translate("aiConfirmText")}</p>
+        <div className="flex flex-col-reverse sm:flex-row justify-end gap-3">
+          <button 
+            onClick={closeModal}
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors"
+          >
             {translate("noButton")}
           </button>
-        </footer>
-      </article>
-    </dialog>
-  )
+          <button 
+            onClick={handleConfirm}
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold bg-primary text-white hover:opacity-90 transition-opacity shadow-md flex justify-center items-center gap-2"
+          >
+            {translate("yesButton")}
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : null
 }
 
 export default AiModelModal

@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "Chinese Travel Document Photo",
-    "zh": "中国旅行证照片"
+    "hi": "चीनी यात्रा दस्तावेज़ फोटो"
   },
   "width": "30",
   "height": "40",
@@ -10,7 +10,7 @@
   "size": "500",
   "instruction": {
     "en": "Please note: <br>Currently there are inconsistencies between the travel document requirements and passport requirements in the Consulate App, so the guide line here is a proportional scaling of the passport photo. If it's inaccurate, please leave a message.",
-    "zh": "请注意：<br>目前领事App内的旅行证要求和护照要求存在不一致性，因此这里的参考线是护照照片参考线的等比缩放，如果准确性有误，请留言更正。"
+    "hi": "Please note: <br>Currently there are inconsistencies between the travel document requirements and passport requirements in the Consulate App, so the guide line here is a proportional scaling of the passport photo. If it's inaccurate, please leave a message."
   },
   "guide": [
     {
@@ -18,7 +18,7 @@
       "title": "Center Guide Line",
       "instruction": {
         "en": "Align the nose tip to the center line",
-        "zh": "将鼻尖居中对齐这条线"
+        "hi": "नाक की नोक को मध्य रेखा के साथ संरेखित करें"
       },
       "start_x": "147.5",
       "start_y": "0",
@@ -36,7 +36,7 @@
       "title": "Forbidden Area: Top",
       "instruction": {
         "en": "Do not put top of the head/hair into this area",
-        "zh": "请勿将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में न रखें"
       },
       "start_x": "0",
       "start_y": "0",
@@ -54,7 +54,7 @@
       "title": "Forbidden Area: Bottom",
       "instruction": {
         "en": "Do not put bottom of the face/chin into this area",
-        "zh": "请勿将头部（包含下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी को इस क्षेत्र में न रखें"
       },
       "start_x": "0",
       "start_y": "340",
@@ -72,7 +72,7 @@
       "title": "Top Head Area",
       "instruction": {
         "en": "Put top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "92.5",
       "start_y": "25",
@@ -90,7 +90,7 @@
       "title": "Draggable Indicator",
       "instruction": {
         "en": "Move the rectangle up and down to fit your face",
-        "zh": "移动方框将头部或脸部边缘按下列要求放入有颜色处"
+        "hi": "अपने चेहरे को फिट करने के लिए आयत को ऊपर-नीचे ले जाएँ"
       },
       "start_x": "50",
       "start_y": "278",
@@ -108,7 +108,7 @@
       "title": "Center Square: Left",
       "instruction": {
         "en": "Put the edge of the left side of the face (not ear) into this area",
-        "zh": "请将脸部（不含耳朵）左侧放入此区域"
+        "hi": "चेहरे के बाईं ओर (कान नहीं) के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "50",
       "start_y": "27",
@@ -126,7 +126,7 @@
       "title": "Center Square: right",
       "instruction": {
         "en": "Put the edge of the right side of the face (not ear) into this area",
-        "zh": "请将脸部（不含耳朵）右侧放入此区域"
+        "hi": "चेहरे के दाईं ओर (कान नहीं) के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "219",
       "start_y": "27",
@@ -144,7 +144,7 @@
       "title": "Center Square: top",
       "instruction": {
         "en": "Put the edge of the top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "82",
       "start_y": "27",
@@ -162,7 +162,7 @@
       "title": "Center Square: bottom",
       "instruction": {
         "en": "Put the edge of the bottom of the face/chin into this area",
-        "zh": "请将脸部（下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "82",
       "start_y": "280",

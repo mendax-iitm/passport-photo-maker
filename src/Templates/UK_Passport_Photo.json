@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "UK Passport Photo",
-    "zh": "英国护照照片"
+    "hi": "यूके पासपोर्ट फोटो"
   },
   "width": "35",
   "height": "45",
@@ -10,7 +10,7 @@
   "size": "150",
   "instruction": {
     "en": "Please check the latest requirement at <a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.gov.uk/photos-for-passports/photo-requirements\">here</a>.",
-    "zh": "请点击<a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.gov.uk/photos-for-passports/photo-requirements\">这里</a>查看最新标准。"
+    "hi": "कृपया नवीनतम आवश्यकता की जाँच <a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.gov.uk/photos-for-passports/photo-requirements\">यहाँ</a> करें。"
   },
   "guide": [
     {
@@ -18,7 +18,7 @@
       "title": "Center Guide Line",
       "instruction": {
         "en": "Align the nose tip to the center line",
-        "zh": "将鼻尖居中对齐这条线"
+        "hi": "नाक की नोक को मध्य रेखा के साथ संरेखित करें"
       },
       "start_x": "172.5",
       "start_y": "0",
@@ -36,7 +36,7 @@
       "title": "Bar: Top",
       "instruction": {
         "en": "Put the edge of the top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "45",
@@ -54,7 +54,7 @@
       "title": "Bar: Bottom",
       "instruction": {
         "en": "Put the edge of the bottom of the face/chin into this area",
-        "zh": "请将脸部（下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "360",

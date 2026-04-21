@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "Spain Passport Photo",
-    "zh": "西班牙护照签证照片"
+    "hi": "स्पेन पासपोर्ट फोटो"
   },
   "width": "26",
   "height": "32",
@@ -10,7 +10,7 @@
   "size": "400",
   "instruction": {
     "en": "Please check the latest requirement at <a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/pasaporte/procedimiento-de-expedicion/\">here</a>. Guidelines for head positioning within the photo are taken from <a target=\"_blank\" rel=\"noreferrer\" href=\"https://makepassportphoto.com/en/p/photo-for-spain-passport\">makepassportphoto.com</a>.",
-    "zh": "请点击<a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/pasaporte/procedimiento-de-expedicion/\">这里</a>查看最新标准。头部位置指南来自<a target=\"_blank\" rel=\"noreferrer\" href=\"https://makepassportphoto.com/en/p/photo-for-spain-passport\">makepassportphoto.com</a>。"
+    "hi": "कृपया नवीनतम आवश्यकता की जाँच <a target=\"_blank\" rel=\"noreferrer\" href=\"https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/pasaporte/procedimiento-de-expedicion/\">यहाँ</a> करें। फोटो के भीतर सिर की स्थिति के लिए दिशा-निर्देश <a target=\"_blank\" rel=\"noreferrer\" href=\"https://makepassportphoto.com/en/p/photo-for-spain-passport\">makepassportphoto.com</a> से लिए गए हैं。"
   },
   "guide": [
     {
@@ -18,7 +18,7 @@
       "title": "Center Guide Line",
       "instruction": {
         "en": "Align the nose tip to the center line",
-        "zh": "将鼻尖居中对齐这条线"
+        "hi": "नाक की नोक को मध्य रेखा के साथ संरेखित करें"
       },
       "start_x": "130",
       "start_y": "0",
@@ -36,7 +36,7 @@
       "title": "Bar: Top",
       "instruction": {
         "en": "Put the edge of the top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "20",
@@ -54,7 +54,7 @@
       "title": "Bar: Bottom",
       "instruction": {
         "en": "Put the edge of the bottom of the face/chin into this area",
-        "zh": "请将脸部（下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "245",

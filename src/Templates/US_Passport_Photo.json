@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "US Passport/Visa Photo",
-    "zh": "美国护照签证照片"
+    "hi": "अमेरिकी पासपोर्ट/वीज़ा फोटो"
   },
   "width": "51",
   "height": "51",
@@ -10,7 +10,7 @@
   "size": "230",
   "instruction": {
     "en": "Please check the latest requirement at <a target=\"_blank\" rel=\"noreferrer\" href=\"https://travel.state.gov/content/travel/en/passports/how-apply/photos.html\">here</a>.",
-    "zh": "请点击<a target=\"_blank\" rel=\"noreferrer\" href=\"https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html\">这里</a>查看最新标准。"
+    "hi": "कृपया नवीनतम आवश्यकता की जाँच <a target=\"_blank\" rel=\"noreferrer\" href=\"https://travel.state.gov/content/travel/en/passports/how-apply/photos.html\">यहाँ</a> करें।"
   },
   "guide": [
     {
@@ -18,7 +18,7 @@
       "title": "Center Guide Line",
       "instruction": {
         "en": "Align the nose tip to the center line",
-        "zh": "将鼻尖居中对齐这条线"
+        "hi": "नाक की नोक को मध्य रेखा के साथ संरेखित करें"
       },
       "start_x": "252.5",
       "start_y": "0",
@@ -36,7 +36,7 @@
       "title": "Draggable Indicator",
       "instruction": {
         "en": "Move the two bars up and down to fit your face",
-        "zh": "请上下拖动这两条绿色方框使得你的头部和脸部符合以下要求"
+        "hi": "अपने चेहरे को फिट करने के लिए दोनों पट्टियों को ऊपर-नीचे ले जाएँ"
       },
       "start_x": "20",
       "start_y": "48",
@@ -54,7 +54,7 @@
       "title": "Bar: Top",
       "instruction": {
         "en": "Put the edge of the top of the head/hair into this area",
-        "zh": "请将头部（包含头发）上沿放入此区域"
+        "hi": "सिर के ऊपरी हिस्से/बालों को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "30",
@@ -72,7 +72,7 @@
       "title": "Bar: Bottom",
       "instruction": {
         "en": "Put the edge of the bottom of the face/chin into this area",
-        "zh": "请将脸部（下巴）下沿放入此区域"
+        "hi": "चेहरे के निचले हिस्से/ठोड़ी के किनारे को इस क्षेत्र में रखें"
       },
       "start_x": "0",
       "start_y": "325",

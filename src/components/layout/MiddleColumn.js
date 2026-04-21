@@ -115,155 +115,180 @@ const MiddleColumn = ({
   };
 
   return (
-    <div className="middle-column">
+    <section className="w-full md:w-[calc(50%-1rem)] lg:w-1/3 bg-surface-container-lowest rounded-xl p-8 shadow-[0_40px_60px_-15px_rgba(22,29,28,0.04)]">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="material-symbols-outlined text-primary-container">edit_square</span>
+        <h2 className="text-xl font-extrabold text-on-surface font-headline tracking-tight">{translate("controlTab1") || "Edit Photo"}</h2>
+      </div>
+
       {photo && (
         <>
-          <div
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onWheel={handleWheel}
-            style={{
-              touchAction: 'none',
-              position: 'relative',
-              display: 'inline-block',
-              width: editorDimensions.width,
-              height: editorDimensions.height,
-              alignSelf: 'center'
+          <div 
+            className="relative bg-surface-container-low rounded-lg overflow-hidden mb-8 flex items-center justify-center mx-auto" 
+            style={{ 
+              width: editorDimensions.width * editorDimensions.zoom, 
+              height: editorDimensions.height * editorDimensions.zoom 
             }}
           >
-            <AvatarEditor
-              ref={editorRef}
-              image={photo}
-              width={editorDimensions.width}
-              height={editorDimensions.height}
-              border={0}
-              scale={zoom}
-              rotate={rotation}
-              position={position}
-              onPositionChange={handlePositionChange}
-              onImageReady={() => updatePreview(editorRef, setCroppedImage)}
-              onImageChange={() => updatePreview(editorRef, setCroppedImage)}
-              disableBoundaryChecks={true}
-              style={{ touchAction: 'none', display: 'block' }}
-            />
-            {options.guide && <GuideDrawer template={photoGuides} editorDimensions={editorDimensions} />}
-          </div>
-          <div className="control-tabs">
-            <div className="tab-buttons">
-              <button
-                className={activeTab === 'transform' ? 'active' : ''}
-                onClick={() => setActiveTab('transform')}
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onWheel={handleWheel}
+              style={{
+                touchAction: 'none',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: editorDimensions.width,
+                height: editorDimensions.height,
+                transform: `scale(${editorDimensions.zoom})`,
+                transformOrigin: 'top left',
+              }}
+            >
+              <AvatarEditor
+                ref={editorRef}
+                image={photo}
+                width={editorDimensions.width}
+                height={editorDimensions.height}
+                border={0}
+                scale={zoom}
+                rotate={rotation}
+                position={position}
+                onPositionChange={handlePositionChange}
+                onImageReady={() => updatePreview(editorRef, setCroppedImage)}
+                onImageChange={() => updatePreview(editorRef, setCroppedImage)}
+                disableBoundaryChecks={true}
+                style={{ touchAction: 'none', display: 'block' }}
+              />
+              {options.guide && <GuideDrawer template={photoGuides} editorDimensions={editorDimensions} />}
+            </div>
+            
+            <div className="absolute bottom-4 right-4 flex gap-2">
+              <button 
+                onClick={() => setRotation(r => r - 90)}
+                className="w-10 h-10 bg-surface-container-lowest/90 backdrop-blur rounded-full flex items-center justify-center shadow-sm text-on-surface active:scale-90 transition-transform"
               >
-                {translate("controlTab1")}
+                <span className="material-symbols-outlined text-[20px]">rotate_left</span>
               </button>
-              <button
-                className={activeTab === 'color' ? 'active' : ''}
-                onClick={() => setActiveTab('color')}
+              <button 
+                onClick={() => setRotation(r => r + 90)}
+                className="w-10 h-10 bg-surface-container-lowest/90 backdrop-blur rounded-full flex items-center justify-center shadow-sm text-on-surface active:scale-90 transition-transform"
               >
-                {translate("controlTab2")}
+                <span className="material-symbols-outlined text-[20px]">rotate_right</span>
               </button>
             </div>
-            {activeTab === 'transform' ? (
-              <div className="transform-controls">
-                <div className="control-group">
-                  <label>{translate("zoomLabel")}</label>
-                  <input
-                    type="range"
-                    min={MIN_ZOOM}
-                    max={MAX_ZOOM}
-                    step={0.1}
-                    value={zoom}
-                    onChange={(e) => setZoom(parseFloat(e.target.value))}
-                  />
-                </div>
-                <div className="control-group">
-                  <label>{translate("rotateLabel")}</label>
-                  <input
-                    type="range"
-                    min={-180}
-                    max={180}
-                    value={rotation}
-                    onChange={(e) => setRotation(parseInt(e.target.value))}
-                  />
-                </div>
-                <div className="control-group">
-                  <label>
-                    <input
-                      type="checkbox"
-                      role="switch"
-                      checked={removeBg.state && allowAiModel}
-                      onChange={() => {
-                        if (!allowAiModel) {
-                          setModals(prev => ({ ...prev, aiModel: true }));
-                        } else {
-                          setRemoveBg(prev => ({ ...prev, state: !prev.state }));
-                        }
-                      }}
-                    />
-                    {translate("removeBgLabel")}
-                  </label>
-                  {loadingModel && <div aria-busy="true">{translate("backgroundRemovalProcessing")}</div>}
-                  {!loadingModel && removeBg.error && (
-                    <div className="control-row3" style={{ color: 'red' }}>
-                      {translate("backgroundRemovalError")}
-                    </div>
-                  )}
-                  {removeBg.state && loadingModel && (
-                    <div className="control-row3">
-                      {translate("backgroundRemovalReminder")}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ) : (
-              <div className="color-controls">
-                <div className="control-group">
-                  <label>{translate("brightness")}</label>
-                  <input
-                    type="range"
-                    min={-100}
-                    max={100}
-                    value={color.brightness}
-                    onChange={(e) => handleColorChange('brightness', parseInt(e.target.value))}
-                  />
-                </div>
-                <div className="control-group">
-                  <label>{translate("contrast")}</label>
-                  <input
-                    type="range"
-                    min={-100}
-                    max={100}
-                    value={color.contrast}
-                    onChange={(e) => handleColorChange('contrast', parseInt(e.target.value))}
-                  />
-                </div>
-                <div className="control-group">
-                  <label>{translate("saturation")}</label>
-                  <input
-                    type="range"
-                    min={-100}
-                    max={100}
-                    value={color.saturation}
-                    onChange={(e) => handleColorChange('saturation', parseInt(e.target.value))}
-                  />
-                </div>
-                <div className="control-group">
-                  <label>{translate("warmth")}</label>
-                  <input
-                    type="range"
-                    min={-100}
-                    max={100}
-                    value={color.warmth}
-                    onChange={(e) => handleColorChange('warmth', parseInt(e.target.value))}
-                  />
-                </div>
-              </div>
-            )}
           </div>
+
+          <div className="flex border-b border-surface-container mb-6">
+            <button
+              className={`flex-1 py-2 text-sm font-bold text-center border-b-2 transition-colors ${activeTab === 'transform' ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-on-surface'}`}
+              onClick={() => setActiveTab('transform')}
+            >
+              {translate("controlTab1")}
+            </button>
+            <button
+              className={`flex-1 py-2 text-sm font-bold text-center border-b-2 transition-colors ${activeTab === 'color' ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-on-surface'}`}
+              onClick={() => setActiveTab('color')}
+            >
+              {translate("controlTab2")}
+            </button>
+          </div>
+
+          {activeTab === 'transform' ? (
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <label className="text-sm font-bold text-on-surface">{translate("zoomLabel")}</label>
+                  <span className="text-xs font-bold text-primary">{zoom.toFixed(1)}x</span>
+                </div>
+                <input
+                  type="range"
+                  min={MIN_ZOOM}
+                  max={MAX_ZOOM}
+                  step={0.1}
+                  value={zoom}
+                  onChange={(e) => setZoom(parseFloat(e.target.value))}
+                  className="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <label className="text-sm font-bold text-on-surface">{translate("rotateLabel")}</label>
+                  <span className="text-xs font-bold text-primary">{Math.round(rotation)}°</span>
+                </div>
+                <input
+                  type="range"
+                  min={-180}
+                  max={180}
+                  step={1}
+                  value={rotation}
+                  onChange={(e) => setRotation(parseInt(e.target.value))}
+                  className="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary"
+                />
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary">auto_fix_high</span>
+                  <div>
+                    <p className="text-sm font-bold text-on-surface">{translate("removeBgLabel")}</p>
+                    <p className="text-[10px] text-on-surface-variant">AI-powered white background</p>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={removeBg.state && allowAiModel}
+                    onChange={() => {
+                      if (!allowAiModel) {
+                        setModals(prev => ({ ...prev, aiModel: true }));
+                      } else {
+                        setRemoveBg(prev => ({ ...prev, state: !prev.state }));
+                      }
+                    }}
+                  />
+                  <div className="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+                </label>
+              </div>
+              
+              {loadingModel && <div className="text-sm font-medium text-primary animate-pulse">{translate("backgroundRemovalProcessing")}</div>}
+              {!loadingModel && removeBg.error && (
+                <div className="text-sm font-medium text-error">
+                  {translate("backgroundRemovalError")}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {[
+                { label: "brightness", val: color.brightness, min: -100, max: 100 },
+                { label: "contrast", val: color.contrast, min: -100, max: 100 },
+                { label: "saturation", val: color.saturation, min: -100, max: 100 },
+                { label: "warmth", val: color.warmth, min: -100, max: 100 }
+              ].map(c => (
+                <div key={c.label} className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <label className="text-sm font-bold text-on-surface">{translate(c.label)}</label>
+                    <span className="text-xs font-bold text-primary">{c.val}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={c.min}
+                    max={c.max}
+                    value={c.val}
+                    onChange={(e) => handleColorChange(c.label, parseInt(e.target.value))}
+                    className="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
-    </div>
+    </section>
   );
 };
 

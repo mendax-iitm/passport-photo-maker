@@ -38,19 +38,13 @@ const LoadPhotoButton = ({ onPhotoLoad, title }) => {
         onChange={handlePhotoUpload}
         accept="image/png, image/jpeg, image/jpg"
       />
-      <div
-        role="button"
-        tabIndex="0"
-        className="load-file-button"
+      <button
+        className="w-full bg-gradient-to-r from-primary to-primary-container text-white py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform mt-4"
         onClick={handleClickBrowse}
-        style={{
-          fill: "red",
-          backgroundImage: `url(${process.env.PUBLIC_URL + "/year_of_dragon.svg"})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100%",
-          backgroundPosition: "bottom right",
-        }}
-      ><kbd style={{ opacity: "0.5", fontSize: "x-large" }}>{title}</kbd></div>
+      >
+        <span className="material-symbols-outlined">add_a_photo</span>
+        {title}
+      </button>
     </>
   )
 }
