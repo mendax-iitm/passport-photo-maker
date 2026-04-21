@@ -44,8 +44,28 @@
         "zh": "缩放"
     },
     "rotateLabel": {
-        "en": "Zoom",
-        "zh": "缩放"
+        "en": "Rotate",
+        "zh": "旋转"
+    },
+    "guideTitle": {
+        "en": "Guide",
+        "zh": "参考线"
+    },
+    "guideLabel": {
+        "en": "Guide",
+        "zh": "参考线"
+    },
+    "instructionLabel": {
+        "en": "Instruction",
+        "zh": "说明"
+    },
+    "defaultWidth": {
+        "en": "Default Width",
+        "zh": "默认宽度"
+    },
+    "defaultHeight": {
+        "en": "Default Height",
+        "zh": "默认高度"
     },
     "controlTab1": {
         "en": "Transform",
@@ -130,30 +150,6 @@
     "sizeLabel": {
         "en": "Size",
         "zh": "文件大小"
-    },
-    "buyMeACoffeeButton": {
-        "en": "Like it? Buy me a coffee!",
-        "zh": "帮上忙了？欢迎打赏！"
-    },
-    "buyMeACoffeeTitle": {
-        "en": "Thank you for your coffee!",
-        "zh": "谢谢打赏！"
-    },
-    "buyMeCopied": {
-        "en": "Copied!",
-        "zh": "已复制"
-    },
-    "buyMeACoffeePaypalZelle": {
-        "en": "Paypal",
-        "zh": "Paypal"
-    },
-    "buyMeACoffeeWeChat": {
-        "en": "Wechat Pay",
-        "zh": "微信支付"
-    },
-    "buyMeACoffeeWords": {
-        "en": "Anything is appreciated! A thank-you letter would make my day as well, I'm glad I can help!",
-        "zh": "任何心意都很感激！哪怕是一封感谢信，能帮到你是我最开心的事情！"
     },
     "changelog": {
         "en": "Changelog",

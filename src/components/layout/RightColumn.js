@@ -6,17 +6,9 @@ import { EXPORT_SIZE_LIMIT } from '../../constants'
 
 const RightColumn = ({ editorProps, photoProps, exportProps, uiProps }) => {
   const { onPhotoLoad } = photoProps
-  const {
-    editorRef,
-    editorDimensions,
-    setEditorDimensions
-  } = editorProps
+  const { editorDimensions } = editorProps
 
-  const {
-    photo,
-    croppedImage,
-    setCroppedImage
-  } = photoProps
+  const { photo, croppedImage } = photoProps
 
   const {
     exportPhoto,
@@ -77,8 +69,8 @@ const RightColumn = ({ editorProps, photoProps, exportProps, uiProps }) => {
   }
 
   const handleSizeChange = (e) => {
-    const newSize = e.target.value
-    if (newSize > 0 && EXPORT_SIZE_LIMIT <= 2000 && !isNaN(newSize)) {
+    const newSize = Number(e.target.value)
+    if (newSize > 0 && newSize <= EXPORT_SIZE_LIMIT && !isNaN(newSize)) {
       setExportPhoto((prevState) => ({
         ...prevState, 
         size: newSize, 
@@ -97,6 +89,8 @@ const RightColumn = ({ editorProps, photoProps, exportProps, uiProps }) => {
       label: 'Change size',
     })
   }
+
+  const isExportValid = exportPhoto.width_valid && exportPhoto.height_valid && exportPhoto.size_valid
 
   return (
     photo && (
@@ -144,12 +138,15 @@ const RightColumn = ({ editorProps, photoProps, exportProps, uiProps }) => {
                   style={{ width: `${editorDimensions.width * editorDimensions.zoom / 2.9}px` }}
                 />
               </div>
-              <div
-                disabled={!(exportPhoto.width_valid && exportPhoto.height_valid && exportPhoto.size_valid)}
-                role="button"
+              <button
+                type="button"
+                disabled={!isExportValid}
                 className="save-button"
                 style={{ width: `${editorDimensions.width * editorDimensions.zoom / 2}px` }}
                 onClick={() => {
+                  if (!isExportValid) {
+                    return
+                  }
                   setModals((prevModals) => ({ ...prevModals, save: true }))
                   ReactGA.event({
                     action: 'generate_photo',
@@ -159,7 +156,7 @@ const RightColumn = ({ editorProps, photoProps, exportProps, uiProps }) => {
                 }}
               >
                 {translate("saveTitle")}
-              </div>
+              </button>
             </article>
             <article className="guides-section guide-instruction">
               <LoadPhotoButton onPhotoLoad={onPhotoLoad} title={translate("loadNewPhotoButton")} />

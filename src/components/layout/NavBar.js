@@ -11,7 +11,6 @@ const NavBar = ({
   const {
     template,
     setTemplate,
-    exportPhoto,
     setExportPhoto
   } = templateProps
 
@@ -19,15 +18,12 @@ const NavBar = ({
     editorRef,
     setEditorDimensions,
     setCroppedImage,
-    updatePreview,
-    calculateEditorZoom
+    updatePreview
   } = editorProps
 
   const {
     getLanguage,
-    setLanguage,
-    translate,
-    translateObject
+    setLanguage
   } = uiProps
 
   const handleTemplateChange = (event) => {

@@ -1,46 +1,84 @@
 import React from 'react'
 
-const GuideDrawer = ({ guides, editorDimensions }) => {
-  // Add guard clause for undefined guides
-  if (!guides) return null
+// Template guide coordinates use 10 units per mm (e.g. a 35x45mm photo maps to
+// a 350x450 coord space). We put that in the SVG viewBox so guides auto-scale
+// to whatever pixel size the editor is rendered at.
+const GuideDrawer = ({ template, guides, editorDimensions }) => {
+  const source = template || guides
+  if (!source) return null
 
-  // Update to handle both old and new guide formats
-  const normalizedGuides = Array.isArray(guides) ? guides : guides.guide
+  const guideList = Array.isArray(source) ? source : source.guide
+  if (!guideList || guideList.length === 0) return null
+
+  const viewW = !Array.isArray(source) && source.width
+    ? parseFloat(source.width) * 10
+    : editorDimensions.width
+  const viewH = !Array.isArray(source) && source.height
+    ? parseFloat(source.height) * 10
+    : editorDimensions.height
 
   return (
     <svg
-      width={editorDimensions.width * editorDimensions.zoom}
-      height={editorDimensions.height * editorDimensions.zoom}
+      width={editorDimensions.width}
+      height={editorDimensions.height}
+      viewBox={`0 0 ${viewW} ${viewH}`}
+      preserveAspectRatio="none"
       style={{
         position: 'absolute',
         top: 0,
         left: 0,
-        pointerEvents: 'none',
-        transform: `scale(${1/editorDimensions.zoom})`
+        pointerEvents: 'none'
       }}
     >
-      {normalizedGuides.map((guide, index) => {
-        // Convert old format guides to new format if needed
+      {guideList.map((guide, index) => {
         const guideData = guide.type ? guide : {
-          type: 'rect',
-          x: parseInt(guide.start_x),
-          y: parseInt(guide.start_y),
-          width: parseInt(guide.width),
-          height: parseInt(guide.height)
+          x: parseFloat(guide.start_x),
+          y: parseFloat(guide.start_y),
+          width: parseFloat(guide.width),
+          height: parseFloat(guide.height)
         }
+        const cx = guideData.x + guideData.width / 2
+        const cy = guideData.y + guideData.height / 2
+        const badgeSize = 14
+        const label = guide.index
 
         return (
-          <rect
-            key={index}
-            x={guideData.x}
-            y={guideData.y}
-            width={guideData.width}
-            height={guideData.height}
-            fill={guide.color || "none"}
-            stroke={guide.color || "red"}
-            strokeWidth="1"
-            opacity={guide.opacity || "0.5"}
-          />
+          <g key={index}>
+            <rect
+              x={guideData.x}
+              y={guideData.y}
+              width={guideData.width}
+              height={guideData.height}
+              fill={guide.color || 'none'}
+              stroke={guide.color || 'red'}
+              strokeWidth="1"
+              opacity={guide.opacity || '0.5'}
+            />
+            {label && (
+              <>
+                <rect
+                  x={cx - badgeSize / 2}
+                  y={cy - badgeSize / 2}
+                  width={badgeSize}
+                  height={badgeSize}
+                  fill={guide.color || 'red'}
+                  opacity="0.9"
+                  rx="2"
+                />
+                <text
+                  x={cx}
+                  y={cy}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fontSize="10"
+                  fontWeight="700"
+                  fill={guide.color === 'yellow' || guide.color === 'green' ? '#000' : '#fff'}
+                >
+                  {label}
+                </text>
+              </>
+            )}
+          </g>
         )
       })}
     </svg>

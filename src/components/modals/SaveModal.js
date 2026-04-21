@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ReactGA from 'react-ga4'
 import { generateSingle, handleSaveSingle, generate4x6, handleSave4x6 } from '../../utils/SaveImage'
 
@@ -7,11 +7,7 @@ const SaveModal = ({
   photoProps,
   uiProps
 }) => {
-  const {
-    editorRef,
-    editorDimensions,
-    exportPhoto
-  } = editorProps;
+  const { exportPhoto } = editorProps;
 
   const {
     croppedImage
@@ -20,14 +16,13 @@ const SaveModal = ({
   const {
     translate,
     modals,
-    setModals,
-    translateObject
+    setModals
   } = uiProps;
 
   const [image4x6Src, setImage4x6Src] = useState(null);
   const [imageSingleSrc, setImageSingleSrc] = useState(null);
   const [isSaveLoading, setIsSaveLoading] = useState(false);
-  const [loadCounter, setLoadCounter] = useState(0);
+  const [, setLoadCounter] = useState(0);
 
   const initiateLoading = () => {
     setIsSaveLoading(true)
@@ -44,7 +39,12 @@ const SaveModal = ({
     })
   }
 
-  const handleSave = async () => {
+  const handleSave = useCallback(async () => {
+    if (!croppedImage) {
+      setIsSaveLoading(false)
+      return
+    }
+
     initiateLoading()
 
     try {
@@ -65,20 +65,20 @@ const SaveModal = ({
       console.error('Error generating images:', error)
       setIsSaveLoading(false)
     }
-  }
+  }, [croppedImage, exportPhoto])
 
   useEffect(() => {
     if (modals.save) {
       handleSave()
     }
-  }, [modals.save])
+  }, [modals.save, handleSave])
 
   return (
     <dialog open={modals.save} className='modal'>
       <article>
         <h2>{translate("saveTitle")}</h2>
         {isSaveLoading ? (
-          <div aria-busy="true">{translate("generating")}</div>
+          <div aria-busy="true">{translate("saveGenerating")}</div>
         ) : (
           <div className="save-option-container">
             <div className="save-option">

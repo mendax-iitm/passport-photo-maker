@@ -5,14 +5,14 @@
     <img src="public/logo512.png" alt="Logo" width="128" height="128">
   </a>
 
-<h3 align="center">护照签证照片生成器 | Passport & Visa Photo Maker</h3>
+<h3 align="center">Passport & Visa Photo Maker</h3>
 
   <p align="center">
-    不需要任何图像处理知识，也不需要下载软件，只需要在手机浏览器里随便点点，或者电脑浏览器鼠标动动，就可以轻松去背景，并且快速生成符合不同国家标准的护照或签证照片。
+    No image-editing knowledge and no software download required. Just tap around in your phone browser or use your mouse in a desktop browser to remove backgrounds easily and quickly generate passport or visa photos that match different countries' requirements.
     <br />
-    <a href="https://jiataihan.dev/passport-photo-maker/"><strong>{ 点击开始使用 }</strong></a>
+    <a href="https://jiataihan.dev/passport-photo-maker/"><strong>{ Click here to get started }</strong></a>
     <br />
-    <a href="https://www.youtube.com/watch?v=z6podleci5E"><strong>{ 点击查看视频教程 }</strong></a>
+    <a href="https://www.youtube.com/watch?v=z6podleci5E"><strong>{ Click here to watch the video tutorial }</strong></a>
     <br />
   </p>
 
@@ -20,73 +20,73 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## 特色
+## Features
 
-* 网页版，自适应界面，可跨平台，跨设备使用（完美支持手机浏览器访问）
-* 中英文双语界面，实时切换（已支持多语言，后期有必要可以轻易扩展）
-* 多个国家的签证和护照照片模板以及参考信息，用JSON定义，可以快速添加
-* AI自动去背景（不支持iPad或者iPhone等iOS设备）
-* 可以鼠标/触摸直接操作图像区域，也可以用微调工具单击微调
-* 鼠标或多点触摸实现图像平移缩放旋转，可进一步使用按钮微调，并实时预览生成图像
-* 高清输出，可以设置输出尺寸，以及输出大小（上限）
-* 可以生成单张图像用于电子版上传，也可以直接4"x6"标准相片尺寸进行打印
+* Web-based, responsive UI that works across platforms and devices, including mobile browsers
+* Bilingual Chinese and English interface with real-time switching, with support for future language expansion
+* Passport and visa photo templates for multiple countries, plus reference information defined in JSON for quick additions
+* AI background removal, except on iOS devices such as iPhone and iPad
+* Direct manipulation of the image area with mouse or touch, plus fine-tuning controls
+* Pan, zoom, and rotate using mouse or multi-touch gestures, with additional button-based adjustments and real-time preview
+* High-resolution output with configurable dimensions and output file size limits
+* Can generate either a single image for digital upload or a printable 4"x6" photo layout
 
-<p align="right">(<a href="#top">回到页首</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
-* 主界面，中国护照签证照片模板
+* Main interface with the Chinese passport/visa photo template
 <div align="center">
-    <img src="readme_assets/Preview.png" alt="程序界面预览" width="600"">
+    <img src="readme_assets/Preview.png" alt="Application preview" width="600"">
 </div>
 
-* AI去背景
+* AI background removal
 <div align="center">
-    <img src="readme_assets/Preview_AI_removal.png" alt="程序界面预览" width="600"">
+    <img src="readme_assets/Preview_AI_removal.png" alt="Application preview" width="600"">
 </div>
 
-* 生成单张或者4"x6"照片打印排版
+* Generate a single image or a printable 4"x6" layout
 <div align="center">
-    <img src="readme_assets/Preview_print_layout.png" alt="程序界面预览" width="600"">
+    <img src="readme_assets/Preview_print_layout.png" alt="Application preview" width="600"">
 </div>
 
-* 美国护照和签证照片模板以及中文界面
+* U.S. passport and visa photo template with Chinese UI
 <div align="center">
-    <img src="readme_assets/Preview_US_Chinese.png" alt="程序界面预览" width="600"">
+    <img src="readme_assets/Preview_US_Chinese.png" alt="Application preview" width="600"">
 </div>
 
-## 简介
+## Introduction
 
-这是一款专为制作符合各国护照和签证要求的照片而设计的软件工具。它以用户友好、简洁高效为特点，能迅速生成符合使馆和领事馆最新指南的标准照片。软件提供了对于照片的多种调节方式，界面直观易用，即使是没有技术背景的用户也能轻松上手，为用户提供了一个便捷的解决方案，可以在家中快速制作出符合标准的照片。
+This tool is designed specifically for creating photos that meet passport and visa requirements in different countries. It focuses on usability, simplicity, and efficiency, allowing users to quickly produce standard-compliant photos based on the latest embassy and consulate guidelines. The interface provides multiple ways to adjust photos and is intuitive enough for non-technical users, making it a convenient way to create compliant photos from home.
 
-<p align="right">(<a href="#top">回到页首</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 ### Built With
 
 * React
 * JavaScript
 * Node.js
-* @imgly/background-removal 用于AI去背景
-* @picocss/pico 界面UI框架
-* pica@9.0.1 用于高品质缩放照片
-* react-avatar-editor 用于作为图像编辑器
-* react-draggable@4.4.6 用于生成可拖拽参考线
+* `@imgly/background-removal` for AI background removal
+* `@picocss/pico` as the UI framework
+* `pica@9.0.1` for high-quality photo scaling
+* `react-avatar-editor` as the image editor
+* `react-draggable@4.4.6` for draggable guide lines
 
-<p align="right">(<a href="#top">回到页首</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
-### 已知问题
+### Known Issues
 
-* <del>平移框拖拽时会超出画布界限的问题</del> (fixed: 2024-01-25)
-* <del>图像大小是以网页实际画布大小为基础，假设中国护照照片是330x480px，在输出处调整大小也仅仅是插值拉伸，画质有较大损失，解决方法有两种：1，让画布本身变大，显示时等比缩小保证网页显示正确，输出时输出原画布大小；2，在输出时重新载入原图，利用记录的缩放平移坐标计算在原图基础上输出图像。鉴于护照签证照片一般文件尺寸要求都偏小，方案1目前更可靠。</del> (fixed: 2024-01-26)
-* <del>初始阶段需要拖拽几次后才能正常平移，原因是第一次缩放时位移坐标没有正确初始化，会择机修复</del> (fixed: 2024-01-27)
-* <del>当切换模版后，预览图片跟画布区域不匹配，需要拖动更新后才可以再次刷新匹配</del>(fixed: 2024-01-28)
-* iOS下保存图片，并非存放于相机胶卷，而是自动保存至文件里，没有提示，可能需要额外处理iOS系统下保存文件的行为；
+* <del>The drag area could move beyond the canvas boundary while panning.</del> (fixed: 2024-01-25)
+* <del>Image size was based on the actual canvas size displayed on the page. For example, if a Chinese passport photo used 330x480px, changing the output size only stretched it with interpolation and caused noticeable quality loss. Two possible fixes were considered: 1. increase the actual canvas size and scale it down proportionally for display while exporting the original canvas size; 2. reload the original image on export and calculate the output from the original image using the recorded pan/zoom coordinates. Since passport and visa photos usually require relatively small file sizes, option 1 was considered more reliable for now.</del> (fixed: 2024-01-26)
+* <del>At startup, users had to drag several times before panning worked correctly because the position coordinates were not initialized properly on the first zoom.</del> (fixed: 2024-01-27)
+* <del>After switching templates, the preview image no longer matched the canvas area until the user dragged it again.</del> (fixed: 2024-01-28)
+* On iOS, saved images are stored in Files instead of the Camera Roll and there is no prompt, so iOS-specific save behavior may need extra handling.
 
-<p align="right">(<a href="#top">回到页首</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 
 
-### 待添加功能
-* （欢迎在讨论区留言建议，或者其他开发者建立新的Branch来添加新功能）。
+### Planned Features
+* Suggestions are welcome in the discussion area, and other developers are welcome to create a new branch and add features.
 
-<p align="right">(<a href="#top">回到页首</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 <div>

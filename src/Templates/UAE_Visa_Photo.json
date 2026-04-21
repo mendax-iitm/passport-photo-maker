@@ -1,0 +1,143 @@
+{
+  "title": {
+    "en": "UAE/Dubai Visa Photo",
+    "zh": "阿联酋/迪拜签证照片"
+  },
+  "width": "43",
+  "height": "55",
+  "dpi": "300",
+  "format": "jpg",
+  "size": "1024",
+  "instruction": {
+    "en": "Plain white background. Face should occupy 70-80% of frame height. File size 50KB to 1MB. Please check the latest requirement <a target=\"_blank\" rel=\"noreferrer\" href=\"https://smartservices.icp.gov.ae/\">here</a>.",
+    "zh": "纯白背景。脸部需占图像高度的70-80%。文件大小50KB至1MB。请点击<a target=\"_blank\" rel=\"noreferrer\" href=\"https://smartservices.icp.gov.ae/\">这里</a>查看最新标准。"
+  },
+  "guide": [
+    {
+      "index": "A",
+      "title": "Center Guide Line",
+      "instruction": {
+        "en": "Align the nose tip to the center line",
+        "zh": "将鼻尖居中对齐这条线"
+      },
+      "start_x": "212.5",
+      "start_y": "25",
+      "width": "5",
+      "height": "500",
+      "color": "yellow",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": true,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "B",
+      "title": "Forbidden Area: Top",
+      "instruction": {
+        "en": "Do not put top of the head/hair into this area",
+        "zh": "请勿将头部（包含头发）上沿放入此区域"
+      },
+      "start_x": "0",
+      "start_y": "0",
+      "width": "430",
+      "height": "55",
+      "color": "red",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": false,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "C",
+      "title": "Forbidden Area: Bottom",
+      "instruction": {
+        "en": "Do not put bottom of the face/chin into this area",
+        "zh": "请勿将头部（包含下巴）下沿放入此区域"
+      },
+      "start_x": "0",
+      "start_y": "495",
+      "width": "430",
+      "height": "55",
+      "color": "red",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": false,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "C",
+      "title": "Forbidden Area: Left",
+      "instruction": {
+        "en": "Do not put the head(including ears) into this area",
+        "zh": "请勿将头部（包含耳朵）放入此区域"
+      },
+      "start_x": "0",
+      "start_y": "55",
+      "width": "25",
+      "height": "440",
+      "color": "red",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": false,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "D",
+      "title": "Forbidden Area: Right",
+      "instruction": {
+        "en": "Do not put the head(including ears) into this area",
+        "zh": "请勿将头部（包含耳朵）放入此区域"
+      },
+      "start_x": "405",
+      "start_y": "55",
+      "width": "25",
+      "height": "440",
+      "color": "red",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": false,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "E",
+      "title": "Top Head Area",
+      "instruction": {
+        "en": "Put top of the head/hair into this area",
+        "zh": "请将头部（包含头发）上沿放入此区域"
+      },
+      "start_x": "25",
+      "start_y": "55",
+      "width": "380",
+      "height": "30",
+      "color": "green",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": true,
+      "opacity": "0.5",
+      "group": "1"
+    },
+    {
+      "index": "F",
+      "title": "Chin Area",
+      "instruction": {
+        "en": "Put the edge of the bottom of the face/chin into this area",
+        "zh": "请将脸部（下巴）下沿放入此区域"
+      },
+      "start_x": "25",
+      "start_y": "465",
+      "width": "380",
+      "height": "30",
+      "color": "green",
+      "isVerticalMovable": false,
+      "isHorizontalMovable": false,
+      "overlap": true,
+      "opacity": "0.5",
+      "group": "2"
+    }
+  ]
+}

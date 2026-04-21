@@ -19,7 +19,6 @@ const LeftColumn = ({
   } = optionsProps
 
   const {
-    editorDimensions,
     photoGuides
   } = editorProps
 
@@ -73,6 +72,28 @@ const LeftColumn = ({
               <small>{photoGuides.height}mm</small>
             </div>
           </div>
+        </article>
+      )}
+      {photoGuides && photoGuides.guide && (
+        <article className="guides-section guide-legend">
+          <ul className="guide-legend-list">
+            {photoGuides.guide.map((g, i) => (
+              <li key={i} className="guide-legend-item">
+                <span
+                  className="guide-legend-badge"
+                  style={{
+                    backgroundColor: g.color,
+                    color: g.color === 'yellow' || g.color === 'green' ? '#000' : '#fff'
+                  }}
+                >
+                  {g.index}
+                </span>
+                <span className="guide-legend-text">
+                  {translateObject(g.instruction)}
+                </span>
+              </li>
+            ))}
+          </ul>
         </article>
       )}
     </div>

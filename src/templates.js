@@ -10,6 +10,10 @@ import Germany_Passport_Photo from './Templates/Germany_Passport_Photo.json'
 import Australia_Visa_Photo from './Templates/Australia_Passport_Photo.json'
 import Mexico_TN_Visa_Photo from './Templates/Mexico_TN_Visa_Photo.json'
 import Spain_Passport_Photo from './Templates/Spain_Passport_Photo.json'
+import Vietnam_eVisa_Photo from './Templates/Vietnam_eVisa_Photo.json'
+import Singapore_Passport_Photo from './Templates/Singapore_Passport_Photo.json'
+import UAE_Visa_Photo from './Templates/UAE_Visa_Photo.json'
+import Indonesia_eVOA_Photo from './Templates/Indonesia_eVOA_Photo.json'
 
 export const TEMPLATES = [
   PRC_Passport_Photo,
@@ -24,4 +28,8 @@ export const TEMPLATES = [
   Germany_Passport_Photo,
   Mexico_TN_Visa_Photo,
   Spain_Passport_Photo,
+  Vietnam_eVisa_Photo,
+  Singapore_Passport_Photo,
+  UAE_Visa_Photo,
+  Indonesia_eVOA_Photo,
 ]

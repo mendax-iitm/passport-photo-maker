@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import GuideDrawer from '../GuideDrawer'
-import ReactGA from 'react-ga4'
 import { MIN_ZOOM, MAX_ZOOM, ROTATION_THRESHOLD_DEG } from '../../constants'
 import { ZOOM_FACTOR } from '../../constants'
 
@@ -21,7 +20,6 @@ const MiddleColumn = ({
 
   const {
     photo,
-    setPhoto,
     zoom,
     setZoom,
     rotation,
@@ -31,8 +29,7 @@ const MiddleColumn = ({
     initialDistance,
     setInitialDistance,
     initialAngle,
-    setInitialAngle,
-    processedPhoto
+    setInitialAngle
   } = photoProps;
 
   const {
@@ -42,13 +39,11 @@ const MiddleColumn = ({
     removeBg,
     setRemoveBg,
     loadingModel,
-    allowAiModel,
-    setAllowAiModel
+    allowAiModel
   } = controlProps;
 
   const {
     translate,
-    modals,
     setModals
   } = uiProps;
 
@@ -128,7 +123,14 @@ const MiddleColumn = ({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             onWheel={handleWheel}
-            style={{ touchAction: 'none' }}
+            style={{
+              touchAction: 'none',
+              position: 'relative',
+              display: 'inline-block',
+              width: editorDimensions.width,
+              height: editorDimensions.height,
+              alignSelf: 'center'
+            }}
           >
             <AvatarEditor
               ref={editorRef}
@@ -142,9 +144,10 @@ const MiddleColumn = ({
               onPositionChange={handlePositionChange}
               onImageReady={() => updatePreview(editorRef, setCroppedImage)}
               onImageChange={() => updatePreview(editorRef, setCroppedImage)}
-              style={{ touchAction: 'none' }}
+              disableBoundaryChecks={true}
+              style={{ touchAction: 'none', display: 'block' }}
             />
-            {options.guide && <GuideDrawer guides={photoGuides.guides} editorDimensions={editorDimensions} />}
+            {options.guide && <GuideDrawer template={photoGuides} editorDimensions={editorDimensions} />}
           </div>
           <div className="control-tabs">
             <div className="tab-buttons">
@@ -188,7 +191,8 @@ const MiddleColumn = ({
                   <label>
                     <input
                       type="checkbox"
-                      checked={removeBg.state}
+                      role="switch"
+                      checked={removeBg.state && allowAiModel}
                       onChange={() => {
                         if (!allowAiModel) {
                           setModals(prev => ({ ...prev, aiModel: true }));
@@ -199,13 +203,23 @@ const MiddleColumn = ({
                     />
                     {translate("removeBgLabel")}
                   </label>
-                  {loadingModel && <div aria-busy="true">{translate("removeBgLoading")}</div>}
+                  {loadingModel && <div aria-busy="true">{translate("backgroundRemovalProcessing")}</div>}
+                  {!loadingModel && removeBg.error && (
+                    <div className="control-row3" style={{ color: 'red' }}>
+                      {translate("backgroundRemovalError")}
+                    </div>
+                  )}
+                  {removeBg.state && loadingModel && (
+                    <div className="control-row3">
+                      {translate("backgroundRemovalReminder")}
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
               <div className="color-controls">
                 <div className="control-group">
-                  <label>{translate("brightnessLabel")}</label>
+                  <label>{translate("brightness")}</label>
                   <input
                     type="range"
                     min={-100}
@@ -215,7 +229,7 @@ const MiddleColumn = ({
                   />
                 </div>
                 <div className="control-group">
-                  <label>{translate("contrastLabel")}</label>
+                  <label>{translate("contrast")}</label>
                   <input
                     type="range"
                     min={-100}
@@ -225,7 +239,7 @@ const MiddleColumn = ({
                   />
                 </div>
                 <div className="control-group">
-                  <label>{translate("saturationLabel")}</label>
+                  <label>{translate("saturation")}</label>
                   <input
                     type="range"
                     min={-100}
@@ -235,7 +249,7 @@ const MiddleColumn = ({
                   />
                 </div>
                 <div className="control-group">
-                  <label>{translate("warmthLabel")}</label>
+                  <label>{translate("warmth")}</label>
                   <input
                     type="range"
                     min={-100}

@@ -1,12 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import AvatarEditor from 'react-avatar-editor'
-import imglyRemoveBackground from "@imgly/background-removal"
+import React, { useState, useCallback, useEffect, useRef } from 'react'
+import { removeBackground as imglyRemoveBackground } from "@imgly/background-removal"
 import ReactGA from 'react-ga4'
 import CookieConsent from "react-cookie-consent"
 import { useLanguage } from './hooks/useLanguage'  // Update path
 import { NavBar, LeftColumn, MiddleColumn, RightColumn } from './components/layout'
-import { SaveModal, Disclaimer, BuyMeACoffee, Changelog } from './components/modals'
-import Disqus from './components/Disqus'  // Add missing import
+import { SaveModal, Disclaimer, Changelog, AiModelModal } from './components/modals'
 import Color from './utils/Color'
 import { TEMPLATES } from './templates'
 import './App.css'
@@ -15,15 +13,6 @@ import './App.css'
 import {
   INITIAL_ZOOM,
   INITIAL_ROTATION,
-  ZOOM_FACTOR,
-  MOVE_FACTOR,
-  MIN_ZOOM,
-  MAX_ZOOM,
-  ROTATION_THRESHOLD_DEG,
-  EXPORT_WIDTH_LIMIT,
-  EXPORT_HEIGHT_LIMIT,
-  EXPORT_SIZE_LIMIT,
-  DEBOUNCE,
   MAX_EDITOR_WIDTH,
   MAX_EDITOR_HEIGHT,
   MM2INCH
@@ -60,7 +49,7 @@ const App = () => {
     height_valid: true,
     size_valid: true,
   })
-  const [modals, setModals] = useState({ coffee: false, changelog: false, save: false, disclaimer: false, aiModel: false })
+  const [modals, setModals] = useState({ changelog: false, save: false, disclaimer: false, aiModel: false })
   const [editorDimensions, setEditorDimensions] = useState({
     width: parseInt(template.width) / MM2INCH * parseInt(template.dpi),
     height: parseInt(template.height) / MM2INCH * parseInt(template.dpi),
@@ -79,7 +68,7 @@ const App = () => {
   const [position, setPosition] = useState({ x: 0.5, y: 0.5 })
   
   // Then declare refs and hooks
-  const editorRef = React.createRef()
+  const editorRef = useRef(null)
   const { translate, translateObject, setLanguage, getLanguage } = useLanguage()
   
   // Init Google Analytics
@@ -125,12 +114,6 @@ const App = () => {
     onPhotoLoad: handlePhotoLoad
   }
 
-  // Move calculateEditorZoom to utils
-  // Remove duplicate calculateEditorZoom function and keep only one instance
-  const calculateEditorZoom = useCallback((originalWidth, originalHeight) => {
-    return Math.min(MAX_EDITOR_WIDTH / originalWidth, MAX_EDITOR_HEIGHT / originalHeight)
-  }, [])
-
   // Function to update the preview
   const updatePreview = (editorRef, setCroppedImage) => {
     if (editorRef.current) {
@@ -142,35 +125,22 @@ const App = () => {
 
   const processPhotoForBgRemoval = useCallback(async (photoData) => {
     setLoadingModel(true)
-
-    const configs = [
-      {
+    try {
+      const resultBlob = await imglyRemoveBackground(photoData, {
         debug: true,
-        model: "medium",
-        publicPath: window.location.href + "/ai-assets/dist/"
-      },
-      { // If can't load local model, try remote one.
-        debug: true,
-        model: "medium",
-      }
-    ]
-
-    for (const config of configs) {
-      try {
-        const resultBlob = await imglyRemoveBackground(photoData, config)
-        const url = URL.createObjectURL(resultBlob)
-        setProcessedPhoto(url)
-        setLoadingModel(false)
-        return // Exit the loop if successful
-      } catch (error) {
-        console.error('Background removal error:', error)
-        // Continue to the next configuration in case of an error
-      }
+        model: 'small',
+        device: 'cpu',
+        proxyToWorker: false
+      })
+      const url = URL.createObjectURL(resultBlob)
+      setProcessedPhoto(url)
+      setRemoveBg((prevState) => ({ ...prevState, error: false }))
+    } catch (error) {
+      console.error('Background removal error:', error)
+      setRemoveBg({ state: false, error: true })
+    } finally {
+      setLoadingModel(false)
     }
-
-    // If all configurations fail, set error state
-    setRemoveBg({ state: false, error: true })
-    setLoadingModel(false)
   }, [])
 
   const handleOptionChange = (event) => {
@@ -239,7 +209,7 @@ const App = () => {
       image.src = removeBg.state && processedPhoto ? processedPhoto : originalPhoto
     }
     adjustImageAndSetPhoto()
-  }, [color, removeBg, processedPhoto, originalPhoto])
+  }, [color, removeBg.state, processedPhoto, originalPhoto])
 
   // Update the photo state when removeBg changes
   useEffect(() => {
@@ -255,13 +225,13 @@ const App = () => {
       setPhoto(originalPhoto)
       setTimeout(() => updatePreview(editorRef, setCroppedImage), 100) // Update preview immediately after setting photo
     }
-  }, [originalPhoto, processedPhoto, adjustedPhoto, editorRef, adjustedPhoto, updatePreview])
+  }, [originalPhoto, processedPhoto, adjustedPhoto, removeBg.state])
 
   useEffect(() => {
     if (removeBg.state && originalPhoto && !processedPhoto && allowAiModel) {
       processPhotoForBgRemoval(originalPhoto)
     }
-  }, [removeBg, originalPhoto, processedPhoto, processPhotoForBgRemoval, allowAiModel])
+  }, [removeBg.state, originalPhoto, processedPhoto, processPhotoForBgRemoval, allowAiModel])
 
   return (
     <div className="app">
@@ -303,10 +273,13 @@ const App = () => {
             photoProps={photoProps}
             uiProps={uiProps}
           />
+          <AiModelModal
+            controlProps={controlProps}
+            uiProps={uiProps}
+          />
           <Disclaimer uiProps={uiProps} />
         </div>
         <div className="container">
-          <BuyMeACoffee uiProps={uiProps} />
           <Changelog uiProps={uiProps} />
           <div
             role="button"
@@ -327,11 +300,6 @@ const App = () => {
             >{translate("feedback")}</a>
           </div>
         </div>
-        <Disqus
-          template={template}
-          getLanguage={getLanguage}
-          translateObject={translateObject}
-        />
         <CookieConsent
           //debug={true}
           flipButtons={true}

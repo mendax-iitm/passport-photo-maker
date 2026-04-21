@@ -333,16 +333,6 @@
   overflow: hidden;
 }
 
-.test {
-  width: 80vw;
-  align-self: center;
-}
-
-iframe {
-  /* set Disqus color scheme to Auto*/
-  color-scheme: light;
-}
-
 .banner {
   background-color: var(--pico-primary-background); 
   color: #000; 
@@ -354,4 +344,41 @@ iframe {
 .banner a {
   color: var(--pico-primary-inverse);
   text-decoration: underline;
+}
+
+.guide-legend {
+  padding: 0.75em 1em;
+}
+
+.guide-legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.guide-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  font-size: 0.9em;
+  line-height: 1.3;
+}
+
+.guide-legend-badge {
+  flex: 0 0 auto;
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.guide-legend-text {
+  flex: 1 1 auto;
 }
