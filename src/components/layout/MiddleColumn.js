@@ -297,13 +297,8 @@ const MiddleColumn = ({
               
               {loadingModel && <div className="text-sm font-medium text-primary animate-pulse">{translate("backgroundRemovalProcessing")}</div>}
               {!loadingModel && removeBg.error && (
-                <div className="text-sm font-medium text-error flex flex-col gap-1">
-                  <span>{translate("backgroundRemovalError")}</span>
-                  {removeBg.errorMsg && (
-                    <span className="text-[10px] text-error/80 break-all bg-error/10 p-2 rounded">
-                      Debug: {removeBg.errorMsg}
-                    </span>
-                  )}
+                <div className="text-sm font-medium text-error">
+                  {translate("backgroundRemovalError")}
                 </div>
               )}
             </div>

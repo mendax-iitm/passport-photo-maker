@@ -132,8 +132,8 @@
     "hi": "AI मॉडल डाउनलोड करें?"
   },
   "aiConfirmText": {
-    "en": "Click \"Confirm\" to start download AI pre-trained model for background removal. It will take ~80MB and will only need to download once for this session.",
-    "hi": "\"पुष्टि करें\" पर क्लिक करके पृष्ठभूमि हटाने के लिए AI पूर्व-प्रशिक्षित मॉडल डाउनलोड शुरू करें। इसमें ~80MB लगेंगे और इस सत्र के लिए केवल एक बार डाउनलोड करने की आवश्यकता होगी।"
+    "en": "Click \"Confirm\" to start download AI pre-trained model for background removal. ",
+    "hi": "\"पुष्टि करें\" पर क्लिक करके पृष्ठभूमि हटाने के लिए AI पूर्व-प्रशिक्षित मॉडल डाउनलोड शुरू करें। "
   },
   "loadNewPhotoButton": {
     "en": "Load New Photo",
