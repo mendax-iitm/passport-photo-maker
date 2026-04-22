@@ -18,7 +18,7 @@ const AiModelModal = ({ controlProps, uiProps }) => {
 
   const handleConfirm = () => {
     setAllowAiModel(true)
-    setRemoveBg((prevState) => ({ ...prevState, state: true }))
+    setRemoveBg((prevState) => ({ ...prevState, state: true, triggerProcess: true }))
     closeModal()
   }
 

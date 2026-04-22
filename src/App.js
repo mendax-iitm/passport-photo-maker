@@ -23,7 +23,7 @@ const App = () => {
   const [template, setTemplate] = useState(TEMPLATES[0])
   const [photo, setPhoto] = useState(null)
   const [allowAiModel, setAllowAiModel] = useState(false)
-  const [removeBg, setRemoveBg] = useState({ state: false, error: false })
+  const [removeBg, setRemoveBg] = useState({ state: false, error: false, hd: false })
   const [loadingModel, setLoadingModel] = useState(false)
   const [originalPhoto, setOriginalPhoto] = useState(null)
   const [processedPhoto, setProcessedPhoto] = useState(null)
@@ -122,21 +122,21 @@ const App = () => {
     }
   }
 
-  const processPhotoForBgRemoval = useCallback(async (photoData) => {
+  const processPhotoForBgRemoval = useCallback(async (photoData, useHD) => {
     setLoadingModel(true)
     try {
       const resultBlob = await imglyRemoveBackground(photoData, {
         debug: true,
-        model: 'small',
+        model: useHD ? 'isnet' : 'small',
         device: 'cpu',
         proxyToWorker: false
       })
       const url = URL.createObjectURL(resultBlob)
       setProcessedPhoto(url)
-      setRemoveBg((prevState) => ({ ...prevState, error: false }))
+      setRemoveBg((prevState) => ({ ...prevState, error: false, errorMsg: '', reprocess: false, triggerProcess: false }))
     } catch (error) {
       console.error('Background removal error:', error)
-      setRemoveBg({ state: false, error: true })
+      setRemoveBg((prevState) => ({ ...prevState, error: true, errorMsg: error.message || String(error), reprocess: false, triggerProcess: false }))
     } finally {
       setLoadingModel(false)
     }
@@ -227,10 +227,10 @@ const App = () => {
   }, [originalPhoto, processedPhoto, adjustedPhoto, removeBg.state])
 
   useEffect(() => {
-    if (removeBg.state && originalPhoto && !processedPhoto && allowAiModel) {
-      processPhotoForBgRemoval(originalPhoto)
+    if (removeBg.triggerProcess && originalPhoto && allowAiModel) {
+      processPhotoForBgRemoval(originalPhoto, removeBg.hd)
     }
-  }, [removeBg.state, originalPhoto, processedPhoto, processPhotoForBgRemoval, allowAiModel])
+  }, [removeBg.triggerProcess, removeBg.hd, originalPhoto, processPhotoForBgRemoval, allowAiModel])
 
   return (
     <div className="app">

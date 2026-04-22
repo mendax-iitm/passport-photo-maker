@@ -229,35 +229,81 @@ const MiddleColumn = ({
                 />
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+              <div className="p-4 bg-surface-container-low rounded-xl space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">auto_fix_high</span>
                   <div>
                     <p className="text-sm font-bold text-on-surface">{translate("removeBgLabel")}</p>
-                    <p className="text-[10px] text-on-surface-variant">AI-powered white background</p>
+                    <p className="text-[10px] text-on-surface-variant">Select quality and process</p>
                   </div>
                 </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="sr-only peer"
-                    checked={removeBg.state && allowAiModel}
-                    onChange={() => {
+                
+                <div className="flex flex-col gap-2">
+                  <label className="flex items-center gap-3 p-2 border border-surface-container rounded-lg cursor-pointer hover:bg-surface-container-highest transition-colors">
+                    <input 
+                      type="radio" 
+                      name="bgRemovalMode" 
+                      value="standard" 
+                      checked={!removeBg.hd}
+                      onChange={() => setRemoveBg(prev => ({ ...prev, hd: false, state: false }))}
+                      className="text-primary focus:ring-primary h-4 w-4"
+                    />
+                    <div>
+                      <p className="text-sm font-bold text-on-surface">Standard Removal</p>
+                      <p className="text-[10px] text-on-surface-variant">Fast processing, standard edges</p>
+                    </div>
+                  </label>
+                  
+                  <label className="flex items-center gap-3 p-2 border border-surface-container rounded-lg cursor-pointer hover:bg-surface-container-highest transition-colors">
+                    <input 
+                      type="radio" 
+                      name="bgRemovalMode" 
+                      value="hd" 
+                      checked={removeBg.hd}
+                      onChange={() => setRemoveBg(prev => ({ ...prev, hd: true, state: false }))}
+                      className="text-primary focus:ring-primary h-4 w-4"
+                    />
+                    <div>
+                      <p className="text-sm font-bold text-on-surface">HD Removal (Premium)</p>
+                      <p className="text-[10px] text-on-surface-variant">High quality fine edges, takes longer</p>
+                    </div>
+                  </label>
+                </div>
+
+                {!removeBg.state ? (
+                  <button
+                    onClick={() => {
                       if (!allowAiModel) {
                         setModals(prev => ({ ...prev, aiModel: true }));
                       } else {
-                        setRemoveBg(prev => ({ ...prev, state: !prev.state }));
+                        setRemoveBg(prev => ({ ...prev, state: true, triggerProcess: true }));
                       }
                     }}
-                  />
-                  <div className="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
-                </label>
+                    disabled={loadingModel}
+                    className="w-full py-2 bg-primary text-on-primary rounded-lg font-bold text-sm shadow-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                  >
+                    {loadingModel ? translate("backgroundRemovalProcessing") : "Process Background Removal"}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setRemoveBg(prev => ({ ...prev, state: false }))}
+                    disabled={loadingModel}
+                    className="w-full py-2 bg-surface-container-highest text-on-surface rounded-lg font-bold text-sm hover:bg-surface-variant transition-colors disabled:opacity-50"
+                  >
+                    Undo Background Removal
+                  </button>
+                )}
               </div>
               
               {loadingModel && <div className="text-sm font-medium text-primary animate-pulse">{translate("backgroundRemovalProcessing")}</div>}
               {!loadingModel && removeBg.error && (
-                <div className="text-sm font-medium text-error">
-                  {translate("backgroundRemovalError")}
+                <div className="text-sm font-medium text-error flex flex-col gap-1">
+                  <span>{translate("backgroundRemovalError")}</span>
+                  {removeBg.errorMsg && (
+                    <span className="text-[10px] text-error/80 break-all bg-error/10 p-2 rounded">
+                      Debug: {removeBg.errorMsg}
+                    </span>
+                  )}
                 </div>
               )}
             </div>

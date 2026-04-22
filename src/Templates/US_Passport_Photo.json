@@ -25,7 +25,7 @@
       "width": "5",
       "height": "510",
       "color": "yellow",
-      "isVerticalMovable": false,
+      "isVerticalMovable": true,
       "isHorizontalMovable": false,
       "overlap": true,
       "opacity": "0.5",
